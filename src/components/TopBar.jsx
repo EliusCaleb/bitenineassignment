@@ -19,7 +19,8 @@ const TopBar = () => {
     topBarStyle.display = "none"; 
   }
   return (
-    <div className="flex justify-between items-center px-4 py-2 bg-gray-900" style={topBarStyle}>
+    <div style={topBarStyle}>
+        <div className="flex justify-between items-center px-4 py-2 bg-gray-900" >
       <div className="ml-4 mr-4">
         <select className="border p-2 rounded">
           <option value="english">English</option>
@@ -61,6 +62,8 @@ const TopBar = () => {
         </div>
       </div>
     </div>
+    </div>
+  
   );
 };
 
