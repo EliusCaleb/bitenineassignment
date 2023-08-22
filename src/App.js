@@ -8,7 +8,7 @@ import Product from "./pages/Product";
 function App() {
   return (
     <div className="">
-      <TopBar />
+      <TopBar style={{ display: "block" }}  />
       <Navbar />
       <Routes>
         <Route path="/home" element={<Product />} />

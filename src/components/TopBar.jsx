@@ -9,9 +9,17 @@ import { PiMediumLogo } from "react-icons/pi";
 import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
-const TopBar = () => {
+const TopBar = () => { 
+  const topBarStyle = {
+    display: "block",
+  };
+
+ 
+  if (window.innerWidth <= 768) {
+    topBarStyle.display = "none"; 
+  }
   return (
-    <div className="flex justify-between items-center px-4 py-2 bg-gray-900">
+    <div className="flex justify-between items-center px-4 py-2 bg-gray-900" style={topBarStyle}>
       <div className="ml-4 mr-4">
         <select className="border p-2 rounded">
           <option value="english">English</option>
