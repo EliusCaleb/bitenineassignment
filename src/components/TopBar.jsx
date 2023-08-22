@@ -1,11 +1,11 @@
 import React from "react";
 import {
-  AiOutlineSearch,
-  AiOutlineGithub,
-  AiOutlineYoutube,
-  AiOutlineLinkedin,
-  AiOutlineFacebook,
-} from "react-icons/ai";
+    FaYoutube,
+    FaGithub,
+    FaLinkedinIn,
+    FaFacebook,
+    FaSearch,
+  } from "react-icons/fa";
 import { PiMediumLogo } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const TopBar = () => {
             placeholder="SEARCH"
             className="border-r-0 p-2 rounded-l"
           />
-          <AiOutlineSearch className="p-2" />
+          <FaSearch className="p-2" />
         </div>
         <div className="ml-4">
           <Link to="/contact" className="text-white hover:text-antiquewhite">
@@ -34,22 +34,22 @@ const TopBar = () => {
         </div>
         <div className="ml-4">
           <Link to="" className="text-yellow-600 hover:text-white">
-            <AiOutlineGithub size={15} className="github-icon w-8 h-8" />
+            <FaGithub size={10} className="github-icon w-8 h-8" />
           </Link>
         </div>
         <div className="ml-4">
           <Link to="" className="text-white hover:text-red-600">
-            <AiOutlineYoutube size={15} className="youtube-icon w-8 h-8" />
+            <FaYoutube size={10} className="youtube-icon w-8 h-8" />
           </Link>
         </div>
         <div className="ml-4">
           <Link to="" className="text-white hover:text-blue-600">
-            <AiOutlineLinkedin size={15} className="linkedin-icon w-8 h-8" />
+            <FaLinkedinIn size={10} className="linkedin-icon w-8 h-8" />
           </Link>
         </div>
         <div className="ml-4">
           <Link to="" className="text-white hover:text-blue-600">
-            <AiOutlineFacebook size={15} className="facebook-icon w-8 h-8" />
+            <FaFacebook size={10} className="facebook-icon w-8 h-8" />
           </Link>
         </div>
         <div className="ml-4">

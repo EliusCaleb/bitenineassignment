@@ -35,12 +35,12 @@ const Footer = () => {
               <FaLinkedinIn className="text-xl" />
             </Link>
           </div>
-          <div className="hover:bg-white hover:text-blue-700 p-2 rounded-full transition duration-500">
+          <div className="hover:bg-gray-900 hover:text-blue-700 p-2 rounded-full transition duration-500">
             <Link to="#">
               <FaFacebook className="text-xl" />
             </Link>
           </div>
-          <div className="hover:bg-white hover:text-blue-900 p-2 rounded-full transition duration-500">
+          <div className="hover:bg-gray-900 hover:text-blue-900 p-2 rounded-full transition duration-500">
             <Link to="#">
               <FaTwitter className="text-xl" />
             </Link>
