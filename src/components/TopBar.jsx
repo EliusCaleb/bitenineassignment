@@ -4,10 +4,10 @@ import {
     FaGithub,
     FaLinkedinIn,
     FaFacebook,
-    FaSearch,
   } from "react-icons/fa";
 import { PiMediumLogo } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const TopBar = () => {
   return (
@@ -19,14 +19,8 @@ const TopBar = () => {
         </select>
       </div>
       <div className="flex items-center">
-        <div className="flex items-center border rounded">
-          <input
-            type="text"
-            placeholder="SEARCH"
-            className="border-r-0 p-2 rounded-l"
-          />
-          <FaSearch className="p-2" />
-        </div>
+          <SearchBar/>
+
         <div className="ml-4">
           <Link to="/contact" className="text-white hover:text-antiquewhite">
             CONTACT
