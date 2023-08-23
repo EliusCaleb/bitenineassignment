@@ -1,68 +1,110 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState(null);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const mockLogin = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    if (formData.email === "elon@gmail.com" && formData.password === "qwerty") {
+      navigate("/home");
+    } else {
+      setError("Login failed. Please check your credentials.");
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null); 
+    await mockLogin();
+  };
+
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-    <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40  lg:max-w-xl">
-         <div className='flex justify-center items-center '>
-           <img src='/assets/img/logo.png' alt='/' className='items-center'/>
-         </div>
-        
+      <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl shadow-rose-600/40 lg:max-w-xl">
+        <div className="flex justify-center items-center">
+          <img src="/assets/img/logo.png" alt="/" className="items-center" />
+        </div>
+
         <h1 className="text-3xl font-semibold text-center text-purple-700 underline uppercase decoration-wavy">
-           Bitnine
+          Bitnine
         </h1>
-        <form className="mt-6">
-            <div className="mb-2">
-                <label
-                    for="email"
-                    className="block text-sm font-semibold text-gray-800"
-                >
-                    Email
-                </label>
-                <input
-                    type="email"
-                    className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                />
-            </div>
-            <div className="mb-2">
-                <label
-                    for="password"
-                    className="block text-sm font-semibold text-gray-800"
-                >
-                    Password
-                </label>
-                <input
-                    type="password"
-                    className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                />
-            </div>
-            <Link
-                to="/login"
-                className="text-xs text-blue-600 hover:underline"
+        <form className="mt-6" onSubmit={handleSubmit}>
+          <div className="mb-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold text-gray-800"
             >
-                Forget Password?
-            </Link>
-            <div className="mt-6">
-                <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-purple-600">
-                    Login
-                </button>
-            </div>
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              required
+            />
+          </div>
+          <div className="mb-2">
+            <label
+              htmlFor="password"
+              className="block text-sm font-semibold text-gray-800"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="block w-full px-4 py-2 mt-2 text-blue-700 bg-white border rounded-md focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              required
+            />
+          </div>
+          <Link to="/login" className="text-xs text-blue-600 hover:underline">
+            Forget Password?
+          </Link>
+          <div className="mt-6">
+            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-700 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-purple-600">
+              Login
+            </button>
+          </div>
         </form>
 
-        <p className="mt-8 text-xs font-light text-center text-gray-700">
-            {" "}
-            Don't have an account?{" "}
-            <Link
-                to="/signup"
-                className="font-medium text-blue-600 hover:underline"
-            >
-                Sign up
-            </Link>
-        </p>
-    </div>
-</div>
-  )
-}
+        {error && (
+          <p className="mt-4 text-sm text-red-600">{error}</p>
+        )}
 
-export default Login
+        <p className="mt-8 text-xs font-light text-center text-gray-700">
+          {" "}
+          Don't have an account?{" "}
+          <Link
+            to="/signup"
+            className="font-medium text-blue-600 hover:underline"
+          >
+            Sign up
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
